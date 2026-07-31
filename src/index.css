@@ -1,0 +1,144 @@
+@import 'tailwindcss';
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
+/* ---------------------------------------------------------------------------
+   travl design tokens
+   Tracking is size-specific: large text tightens, body sits near zero.
+   Motion defaults to critically damped; bounce is reserved for gestures that
+   carried momentum.
+   --------------------------------------------------------------------------- */
+
+@theme {
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+
+  --color-canvas: oklch(99% 0.002 250);
+  --color-surface: oklch(100% 0 0);
+  --color-sunken: oklch(96.5% 0.004 250);
+  --color-line: oklch(91% 0.006 250);
+  --color-ink: oklch(21% 0.012 260);
+  --color-ink-soft: oklch(48% 0.012 260);
+  --color-ink-faint: oklch(62% 0.01 260);
+
+  --color-brand: oklch(58% 0.16 235);
+  --color-brand-soft: oklch(95% 0.03 235);
+
+  --radius-card: 0.75rem;
+
+  --shadow-card: 0 1px 2px oklch(20% 0.02 260 / 0.05), 0 1px 3px oklch(20% 0.02 260 / 0.06);
+  --shadow-lift: 0 8px 24px oklch(20% 0.02 260 / 0.12), 0 2px 6px oklch(20% 0.02 260 / 0.08);
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2 {
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  h3,
+  h4 {
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Map pins
+   Built here rather than per adapter so a pin looks identical on Google, Amap
+   and OpenStreetMap — switching provider should not visibly change the plan.
+   --------------------------------------------------------------------------- */
+
+.travl-pin {
+  display: grid;
+  justify-items: center;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  padding: 0;
+  line-height: 1;
+  /* Scale from the pin's tip, so a growing marker stays on its location. */
+  transform-origin: bottom center;
+  transition: transform 160ms cubic-bezier(0.2, 0, 0, 1), opacity 160ms ease-out;
+}
+
+.travl-pin__body {
+  display: grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.35);
+}
+
+.travl-pin__stem {
+  width: 2px;
+  height: 6px;
+  margin-top: -1px;
+  border-radius: 0 0 1px 1px;
+  opacity: 0.85;
+}
+
+.travl-pin[data-active='true'] {
+  transform: scale(1.25);
+  z-index: 2;
+}
+
+.travl-pin[data-dim='true'] {
+  opacity: 0.45;
+}
+
+.travl-pin:hover {
+  transform: scale(1.15);
+}
+
+/* ---------------------------------------------------------------------------
+   Print
+   --------------------------------------------------------------------------- */
+
+@page {
+  margin: 14mm;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  /* Colour-coded categories and budget bars are meaningless in greyscale
+     unless the browser is told to keep the fills. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a[href]::after {
+    content: '';
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
