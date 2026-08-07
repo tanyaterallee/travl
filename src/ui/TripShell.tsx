@@ -176,6 +176,15 @@ function TripHeader({ onShare }: { onShare: () => void }) {
       >
         {locale === 'zh' ? 'EN' : '中文'}
       </Button>
+      {/* The scheduling page is a second surface onto the same trip, so it
+          belongs in the header rather than behind a menu — the moment you want
+          it is the moment you are looking at the days you have free. */}
+      <a
+        href="#/meet"
+        className="rounded-lg px-2 py-1 text-sm font-medium text-ink-soft transition-colors hover:bg-sunken hover:text-ink"
+      >
+        {t('meet.nav')}
+      </a>
       <Button onClick={goToPrint}>{t('share.print')}</Button>
       <Button variant="primary" onClick={onShare}>
         {t('share.copy')}

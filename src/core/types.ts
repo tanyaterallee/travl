@@ -13,6 +13,8 @@ export type PlaceId = Id<'place'>
 export type DayId = Id<'day'>
 export type ItemId = Id<'item'>
 export type ActorId = Id<'actor'>
+export type SlotId = Id<'slot'>
+export type BookingId = Id<'booking'>
 
 export function asId<T extends string>(s: string): Id<T> {
   return s as Id<T>
