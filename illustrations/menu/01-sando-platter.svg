@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="540" viewBox="0 0 420 540">
+<defs>
+ <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+  <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="10" result="g"/>
+  <feDisplacementMap in="d" in2="g" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+ </filter>
+ <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="9"/>
+  <feColorMatrix values="0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.9 0"/></filter>
+ <clipPath id="clip"><rect x="0" y="0" width="300" height="420"/></clipPath>
+</defs>
+<rect width="420" height="540" fill="#f4f2ec"/>
+<g transform="translate(60,60)" filter="url(#rough)">
+ <rect x="0" y="0" width="300" height="420" fill="#111"/>
+ <g clip-path="url(#clip)"><path d="M18,352 C31.4,349.4 123.6,346.0 150,346 C176.4,346.0 268.6,349.4 282,352 C295.4,354.6 297.2,369.4 284,372 C270.8,374.6 176.8,378.0 150,378 C123.2,378.0 29.2,374.6 16,372 C2.8,369.4 4.6,354.6 18,352Z" fill="#fff"/><path d="M30,120 C40.4,75.6 59.6,96.4 80,96 C100.4,95.6 121.2,73.2 132,118 C142.8,162.8 144.0,278.4 134,320 C124.0,361.6 103.2,326.4 82,326 C60.8,325.6 38.4,359.2 28,318 C17.6,276.8 19.6,164.4 30,120Z" fill="#fff"/><path d="M40,190 C48.4,176.0 65.2,179.6 82,180 C98.8,180.4 115.6,177.6 124,192 C132.4,206.4 132.4,238.0 124,252 C115.6,266.0 98.8,262.4 82,262 C65.2,261.6 48.4,264.4 40,250 C31.6,235.6 31.6,204.0 40,190Z" fill="#111"/><path d="M62,206 C72.1,196.4 85.7,194.7 98,200 C110.3,205.3 110.7,214.3 108,226 C105.3,237.7 100.8,241.3 88,244 C75.2,246.7 66.9,246.1 60,236 C53.1,225.9 51.9,215.6 62,206Z" fill="#fff"/><path d="M160,326 C160.8,309.0 173.0,147.3 176,130 C179.0,112.7 187.8,102.3 196,118 C204.2,133.7 267.8,300.3 274,318 C280.2,335.7 279.0,328.7 270,330 C261.0,331.3 175.2,334.3 166,334 C156.8,333.7 159.2,343.0 160,326Z" fill="#fff"/><path d="M180,170 C182.7,175.0 195.0,188.3 196,200 C197.0,211.7 185.3,226.7 186,240 C186.7,253.3 199.3,266.3 200,280 C200.7,293.7 191.7,315.0 190,322 L222,322 222,322 C224.3,315.0 236.0,293.7 236,280 C236.0,266.3 222.7,253.3 222,240 C221.3,226.7 235.0,213.3 232,200 C229.0,186.7 208.7,166.7 204,160Z" fill="#111"/><ellipse cx="200" cy="214" rx="7" ry="12" transform="rotate(-20 200 214)" fill="#fff"/><ellipse cx="212" cy="256" rx="6" ry="11" transform="rotate(25 212 256)" fill="#fff"/><ellipse cx="204" cy="296" rx="6" ry="10" transform="rotate(-15 204 296)" fill="#fff"/><ellipse cx="196" cy="180" rx="5" ry="8" transform="rotate(10 196 180)" fill="#fff"/><path d="M214,40 C222.4,37.2 238.9,48.2 244,58 C249.1,67.8 244.4,79.2 236,82 C227.6,84.8 213.1,79.8 208,70 C202.9,60.2 205.6,42.8 214,40Z" fill="#fff"/></g>
+</g>
+<rect width="420" height="540" filter="url(#grain)" opacity="0.18" style="mix-blend-mode:multiply"/>
+</svg>

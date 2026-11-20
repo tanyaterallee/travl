@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="540" viewBox="0 0 420 540">
+<defs>
+ <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17" result="n"/>
+  <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="24" result="g"/>
+  <feDisplacementMap in="d" in2="g" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+ </filter>
+ <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="9"/>
+  <feColorMatrix values="0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.9 0"/></filter>
+ <clipPath id="clip"><rect x="0" y="0" width="300" height="420"/></clipPath>
+</defs>
+<rect width="420" height="540" fill="#f4f2ec"/>
+<g transform="translate(60,60)" filter="url(#rough)">
+ <rect x="0" y="0" width="300" height="420" fill="#111"/>
+ <g clip-path="url(#clip)"><path d="M84,60 C93.1,57.6 206.9,57.6 216,60 C225.1,62.4 229.1,93.6 220,96 C210.9,98.4 89.1,98.4 80,96 C70.9,93.6 74.9,62.4 84,60Z" fill="#fff"/><path d="M70,110 C106.0,98.0 194.0,98.0 230,110 C266.0,122.0 246.8,122.0 250,170 C253.2,218.0 266.0,309.6 246,350 C226.0,390.4 188.4,372.0 150,372 C111.6,372.0 74.0,390.4 54,350 C34.0,309.6 46.8,218.0 50,170 C53.2,122.0 34.0,122.0 70,110Z" fill="#fff"/><path d="M76,170 C83.3,166.7 107.7,146.7 120,150 C132.3,153.3 137.3,188.3 150,190 C162.7,191.7 182.3,160.7 196,160 C209.7,159.3 226.0,181.7 232,186" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M70,240 C76.7,235.7 98.3,212.0 110,214 C121.7,216.0 126.7,250.3 140,252 C153.3,253.7 174.0,223.3 190,224 C206.0,224.7 228.3,250.7 236,256" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M72,310 C79.3,306.3 103.0,286.0 116,288 C129.0,290.0 136.7,320.7 150,322 C163.3,323.3 182.7,296.3 196,296 C209.3,295.7 224.3,316.0 230,320" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="100" cy="192" r="5" fill="#111"/><circle cx="176" cy="206" r="4" fill="#111"/><circle cx="126" cy="272" r="5" fill="#111"/><circle cx="208" cy="278" r="4" fill="#111"/><circle cx="160" cy="346" r="4" fill="#111"/><circle cx="92" cy="346" r="3" fill="#111"/></g>
+</g>
+<rect width="420" height="540" filter="url(#grain)" opacity="0.18" style="mix-blend-mode:multiply"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="540" viewBox="0 0 420 540">
+<defs>
+ <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="5" result="n"/>
+  <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="12" result="g"/>
+  <feDisplacementMap in="d" in2="g" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+ </filter>
+ <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="9"/>
+  <feColorMatrix values="0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.9 0"/></filter>
+ <clipPath id="clip"><rect x="0" y="0" width="300" height="420"/></clipPath>
+</defs>
+<rect width="420" height="540" fill="#f4f2ec"/>
+<g transform="translate(60,60)" filter="url(#rough)">
+ <rect x="0" y="0" width="300" height="420" fill="#111"/>
+ <g clip-path="url(#clip)"><circle cx="148" cy="268" r="104" fill="#fff"/><circle cx="148" cy="268" r="92" fill="#111"/><circle cx="148" cy="268" r="74" fill="#fff"/><circle cx="148" cy="268" r="60" fill="#111"/><path d="M148,224 C161.1,224.0 170.9,238.1 176,254 C181.1,269.9 176.5,279.4 170,292 C163.5,304.6 158.3,308.0 148,308 C137.7,308.0 132.5,304.6 126,292 C119.5,279.4 114.9,269.9 120,254 C125.1,238.1 134.9,224.0 148,224Z" fill="#fff"/><path d="M148,232 C148.0,243.3 148.0,288.7 148,300" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M130,258 C133.0,260.0 142.0,270.0 148,270 C154.0,270.0 163.0,260.0 166,258" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M132,280 C134.7,281.7 142.7,290.0 148,290 C153.3,290.0 161.3,281.7 164,280" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M212,240 C215.2,234.4 229.6,230.0 236,232 C242.4,234.0 247.2,244.4 244,250 C240.8,255.6 226.4,262.0 220,260 C213.6,258.0 208.8,245.6 212,240Z" fill="#fff"/><path d="M120,140 C122.3,135.3 134.7,121.3 134,112 C133.3,102.7 116.7,93.7 116,84 C115.3,74.3 127.7,59.0 130,54" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M172,140 C170.0,135.3 158.7,121.3 160,112 C161.3,102.7 179.0,93.7 180,84 C181.0,74.3 168.3,59.0 166,54" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="52" cy="90" rx="15" ry="22" transform="rotate(-30 52 90)" fill="#fff"/><path d="M46,76 C47.7,78.3 55.3,85.3 56,90 C56.7,94.7 51.0,101.7 50,104" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="250" cy="370" rx="13" ry="19" transform="rotate(40 250 370)" fill="#fff"/><path d="M256,358 C254.3,360.0 246.7,366.0 246,370 C245.3,374.0 251.0,380.0 252,382" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+</g>
+<rect width="420" height="540" filter="url(#grain)" opacity="0.18" style="mix-blend-mode:multiply"/>
+</svg>
